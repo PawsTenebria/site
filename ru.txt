@@ -69,39 +69,39 @@
 
 #Позиции
 (Сам, Партнер)
-? Участие в ролевой игре, в которой указаный игрок взял на себя доминирующую позицию (актив)
+? Участие в ролевой игре, в которой указаный игрок берет на себя доминирующую позицию (актив)
 * как покорный
-? Участие в ролевой игре, в которой указаный игрок взял на себя нижнюю позицию (пасив)
+? Участие в ролевой игре, в которой указаный игрок берет на себя нижнюю позицию (пасив)
 * как переключатель
 ? Участие в ролевой игре, в которой указаный игрок может взять на себя и доминирующую и нижнюю позицию (Уни)
 
 #Роли
 (Сам, Партнер)
 * как знаменитость
-? Участие в ролевой игре, в которой указаный игрок 
+? Участие в ролевой игре, в которой указаный игрок берет на себя роль знаменитости или известной персоны.
 
-#General
-(Giving, Receiving)
-* Romance / Affection
-? Displaying or expressing love or strong affection, passion, either during love making or during normal scenes.
-* Handjob / Fingering
-? Sexual stimulation by direct, physical contact of the hands or fingers to the genitals.
-* Blowjob
-? Sexual stimulation by direct, physical contact of the mouth or tongue to male genitals
-* Deep throat
-? The act of penetrating the mouth of another character to the depths at which the penis or insertion enters the back of the mouth cavity and/or throat, sometimes causing a gag reflex, or being the recipient of such actions.
-* Swallowing
-? The act of orally consuming semen, either directly or indirectly from a penis.
-* Facials
-? The act of cumming directly onto one's face
-* Cunnilingus
-? Sexual stimulation by direct, physical contact of the mouth or tongue to female genitals
-* Face-sitting
-? A sexual practice where someone sits on another character's face with their buttocks or genitals, causing the person to be smothered, sometimes to the point asphyxiation; often done as form of forcing oral gratification.
-* Edging
-? Keeping on the edge of climax without orgasm
-* Teasing
-? Refers to extended scenes of foreplay prior to explicit, sexual intercourse, which may be physical and/or verbal, typically to arouse one's partner to the point of sexual frustration or desperation.
+#Общий
+(Дарить, получать)
+* Романтика/Привязанность
+? Демонстрация или выражение любви или сильной привязанности, страсти во время занятий любовью или во время обычных сцен.
+* Дрочка/мастурбация
+? Сексуальная стимуляция половых органов путем прямым физическим контактом рук или пальцев.
+* Куни
+? Сексуальная стимуляция половых губ путем прямого физического контакта рта или языка.
+* Минет
+? Сексуальная стимуляция члена путем прямого физического контакта рта или языка.
+* Глубокая глотка
+? Акт проникновения в рот другого персонажа на глубину, на которой пенис или вставка входит в заднюю часть ротовой полости и / или горла, иногда вызывая рвотный рефлекс или являясь объектом таких действий.
+* Глотание
+? Акт перорального потребления спермы, прямо или косвенно из полового члена.
+* На лицом
+? Акт извержения спермы прямо на лицо
+* Сидение на лице
+? Сексуальная практика, когда кто-то садится на лицо другого персонажа ягодицами или гениталиями, в результате чего человек задыхается, иногда вплоть до удушья; часто делается как форма принуждения к оральному удовлетворению.
+* Сдерживание
+? Держась на грани кульминации без оргазма
+* Поддразнивания
+? Относится к расширенным сценам прелюдии перед явным половым актом, который может быть физическим и/или вербальным, обычно для того, чтобы возбудить партнера до точки сексуального разочарования или отчаяния.
 
 #Ass play
 (Giving, Receiving)
