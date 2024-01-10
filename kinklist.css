@@ -1,4 +1,11 @@
+.choice.selected {
+    background-color: #00ff00; /* Цвет подсветки выбранной кнопки */
+}
 
+.choice.dimmed {
+    opacity: 0.5; /* Прозрачность тусклых кнопок */
+    pointer-events: none; /* Исключаем тусклые кнопки из событий */
+}
 body {
 	font-family:'Verdana','Arial';
 	font-size:12px
