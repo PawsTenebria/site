@@ -14,6 +14,37 @@
         <link rel="stylesheet" href="kinklist.css">
     </head>
     <body>
+	    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Ваш JavaScript-код здесь
+        $(document).ready(function(){
+            // Ваш предложенный код
+            $('#InputList').on('click', '.choice', function() {
+    // Удаляем класс 'selected' со всех кнопок
+    $('.choice').removeClass('selected');
+
+    // Добавляем класс 'selected' к выбранной кнопке
+    $(this).addClass('selected');
+
+    // Определяем индекс выбранной кнопки
+    var selectedIndex = $(this).index();
+
+    // Определяем количество кнопок
+    var totalButtons = $('.choice').length;
+
+    // Управляем тусклостью кнопок слева
+    for (var i = 0; i < selectedIndex; i++) {
+        $('.choice').eq(i).addClass('dimmed');
+    }
+
+    // Управляем тусклостью кнопок справа
+    for (var j = selectedIndex + 1; j < totalButtons; j++) {
+        $('.choice').eq(j).addClass('dimmed');
+    }
+});
+
+        });
+    </script>
         <div class="widthWrapper">
             <button id="Edit"></button>
             <h1>Kinklist</h1>
