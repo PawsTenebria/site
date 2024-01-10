@@ -176,8 +176,6 @@ $(function(){
             $('#Export').on('click', inputKinks.export);
             $('#URL').on('click', function(){ this.select(); });
 
-    // Другие действия, которые вам могут понадобиться
-});
             // On resize, redo columns
             (function(){
 
