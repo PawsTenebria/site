@@ -175,7 +175,14 @@ $(function(){
             // Make export button work
             $('#Export').on('click', inputKinks.export);
             $('#URL').on('click', function(){ this.select(); });
+            $('.choices').on('click', function(){
+                var $choice = $(this);
+                $choice.toggleClass('selected');
+                $choice.prevAll('.choices').addClass('selected'); // Выбор всех звезд слева
+                $choice.nextAll('.choices').removeClass('selected'); // Сброс выбора всех звезд справа
 
+    // Другие действия, которые вам могут понадобиться
+});
             // On resize, redo columns
             (function(){
 
