@@ -56,7 +56,7 @@
 ? Участие в ролевой игре, в которой указаный игрок взял на себя роль нескольких мужчин
 * как несколько женщин
 ? Участие в ролевой игре, в которой указаный игрок взял на себя роль нескольких женщин
-* как доминант
+
 
 #Раса
 (Сам, Партнер)
@@ -69,6 +69,7 @@
 
 #Позиции
 (Сам, Партнер)
+* как доминант
 ? Участие в ролевой игре, в которой указаный игрок берет на себя доминирующую позицию (актив)
 * как покорный
 ? Участие в ролевой игре, в которой указаный игрок берет на себя нижнюю позицию (пасив)
@@ -81,7 +82,7 @@
 ? Участие в ролевой игре, в которой указаный игрок берет на себя роль знаменитости или известной персоны.
 
 #Общий
-(Дарить, получать)
+(Делать кому то, Ощущать на себе)
 * Романтика/Привязанность
 ? Демонстрация или выражение любви или сильной привязанности, страсти во время занятий любовью или во время обычных сцен.
 * Дрочка/мастурбация
@@ -103,109 +104,125 @@
 * Поддразнивания
 ? Относится к расширенным сценам прелюдии перед явным половым актом, который может быть физическим и/или вербальным, обычно для того, чтобы возбудить партнера до точки сексуального разочарования или отчаяния.
 
-#Ass play
-(Giving, Receiving)
-* Anal toys
-? Refers to the inclusion of anal penetration with sex toys, including but not limited to dildos, vibrators, anal eggs, anal beads, etc.
-* Anal sex/pegging
-? Being penetrated by a partner, with a penis or strap-on
-* Rimming
-? The act of giving oral stimulation to a partner's anus, by the means of licking and/or penetrating the recipient's anus with the tongue.
-* Double penetration
-? The act of penetrating a single character's anus with two objects, including but not limited to the penis, sex toys, fist etc., or receiving such.
-* Anal fisting
-? The act of inserting one's hand(s) and/or arm(s) into one's partner's anus, or being the recipient of such acts.
+#Игры с задницей
+(Делать кому то, Ощущать на себе)
+* Анальные игрушки
+? Относится к включению анального проникновения с помощью секс-игрушек, включая, помимо прочего, фаллоимитаторы, вибраторы, анальные яйца, анальные шарики и т. д.
+* Анальный секс/пеггинг
+? Проникновение партнером с помощью пениса или страпона
+* Римминг
+? Акт оральной стимуляции ануса партнера посредством облизывания и/или проникновения языка в анус реципиента.
+* Двойное проникновение
+? Акт проникновения в анус одного персонажа двумя предметами, включая, помимо прочего, пенис, секс-игрушки, кулак и т. д., или получение таких предметов.
+* Анальный фистинг
+? Действие по введению руки (рук) и/или кисти в анус партнера или получение таких действий.
 
-#Restrictive
-(Self, Partner)
-* Gag
-? The act of placing and lodging an object in another character's mouth to force him or her to breathe through his or her nose, as well as creating the inability to speak, or receiving such actions.
-* Collar
-? Wearing a collar around the neck
-* Leash
-? Being lead around on a leash
-* Chastity
-? Sexual abstinence, either willing or forced; this can include someone simply abstaining from sexual activity, or the wearing of a device that prevents it.
-* Bondage (Light)
-? The use of bondage that is mild or moderate in either the position in which it causes the bound character to be in, the duration for which the character will be in bondage, the level of discomfort caused by the bondage or the amount of immobilization that will occur due to the bondage.
-* Bondage (Heavy)
-? The use of bondage that is extreme in either the position in which it causes the bound character to be in, the duration for which the character will be in bondage, the level of discomfort caused by the bondage or the amount of immobilization that will occur due to the bondage.
-* Encasement
-? one’s whole body being wrapped up like a mummy in a latex suit, sleepsack, or other fetish gear for the purposes of sexual gratification.
 
-#Toys
-(Self, Partner)
-* Dildos
-? an object shaped like an erect penis used for sexual stimulation.
-* Plugs
-? a sex toy of a type designed to be inserted into the rectum.
-* Vibrators
-? a vibrating device used for sexual stimulation.
-* Sounding
-? The act of inserting metal rods into a male or female's urethra, or receiving such actions; technically implies rods that resonate and/or vibrate in response to a form of stimulation, but does not necessarily mean so.
+#Ограничения
+(Сам, Партнер)
+* Кляп
+? Помещение и помещение предмета в рот другого персонажа, чтобы заставить его или ее дышать через нос, а также создание неспособности говорить или получение таких действий.
+* Ошейник
+? Ношение ошейника или чокера на шее.
+* Поводок
+? Быть на поводке.
+* Целомудрие
+? Сексуальное воздержание, добровольное или вынужденное; это может включать в себя простое воздержание от сексуальной активности или ношение устройства, предотвращающего ее.
+* Бондаж (Легкий)
+? Использование на вас связывания легкой или умеренной степени в зависимости от положения для ограничений движений.
+* Бондаж (Тяжелый)
+? Использование на вас связывания, которое является крайним в зависимости от положения, в котором находится связанный персонаж, продолжительности, в течение которой персонаж будет находиться в рабстве, уровня дискомфорта, вызванного связыванием, или степени иммобилизации, которая произойдет из-за в рабство.
+* Корпус
+? все тело человека заворачивается, как мумия, в латексный костюм, спальный мешок или другое фетиш-оборудование с целью сексуального удовлетворения.
 
-#Domination
-(As Dominant, As Submissive)
-* General Dom / General Sub
-? Catchall for Dominant/Submissive Activities.
-* Domestic servitude
-? Being served by a butler, waitress, chauffeur, maid or housekeeper, or serving as one.
-* Slavery
-? Serving as the dominant's beck and call, or recieving such service, without choice.
-* Pet play
-? Petplay is a in role in which the focus is on the sub entering the altered mind space of a different species, often a dog, cat, or horse.
-* DD/lg, MD/lb
-? Daddy or Mommy Dom/ Littly Girl or Boy. The daddy/mommy is the more dominant half of the relationship, the little is the more submissive.
-* Discipline
-? The use of reinforcement (rewards and/or punishments) in order to train a submissive to obey the various commands of a master.
-* Begging
-? The self-abasing act of pleading, as a form of submission, being incorporated into an RP.
-* Forced orgasm
-? A forced orgasm is consensual BDSM or kinky sexual play whereby a person consents to be forced to orgasm in a way that is beyond their control.
-* Orgasm control
-? Refers to the dominant being in control of when the submissive achieves orgasm, either by physical means or by command; typically involves domination and/or excessive teasing and edging; orgasm may be completely denied.
-* Orgasm denial
-? Refers to the dominant denying the submissive orgasm.
-* Power exchange
-? A relationship with service at the core.
+#Игрушки
+(Сам, Партнер)
+* Фаллоимитаторы
+? предмет в форме эрегированного пениса, используемый для сексуальной стимуляции.
+* Пробки
+? секс-игрушка, предназначенная для введения в анал.
+* Вибраторы
+? виброустройство, используемое для сексуальной стимуляции.
+* Стержень
+? Введение металлических стержней в уретру мужчины или женщины или выполнение таких действий; технически подразумевает стержни, которые резонируют и/или вибрируют в ответ на определенную форму стимуляции, но это не обязательно так.
+* Вакуум
+? Вакумное устройство, используемое для сексуальной стимуляции путем выкачвания возжуха в интимных зонах.
+* Эрекционное кольцо
+? Кольцо которое создает искусственный барьер для семяизвержения на члене.
 
-#No consent
-(Aggressor, Target)
-* Dubious consent
-? situations where one partner's consent is in question, though not outright rape.
-* Non-con / rape
-? taking/being taken against one's will, often through force
-* Blackmail / coercion
-? Refers to the inclusion of Coercion and/or Blackmail in the context of the story arc of an RP, often in the form of a semi-consensual means of receiving sex from a partner.
-* Kidnapping
-? The act of abducting a character in an RP for the purpose of abusing, often sexually, or being abducted for such reasons; often implies indefinite imprisonment.
-* Drugs
-? The use of illicit drugs in the context of an RP, typically to disorientate or otherwise mentally incapacitate a character, or to elevate the sensations of sex.
-* Alcohol
-? The use of alcohol in the context of an RP, typically to disorientate or otherwise mentally incapacitate a character, or to elevate the sensations of sex.
-* Sleep play
-? Engaging in sexual acts with an unconscious/asleep partner
+#Другое
+(Общий)
+* Афродизиак
 
-#Taboo
-(General)
-* Incest
-? Engaging in an RP in which at least two characters will be related
-* Age Gap
-? Refers to scenes in which there is a signifigant gap in the ages of characters.
-* Interracial
-? Scenes based on interracial interactions without relying on racial stereotypes.
-* Raceplay
-? Scenes based on racial stereotypes or racism, including scenes set in racist settings.
-* Bestiality
-? Refers to a sapient character engaging in a sexual act with a non-sapient animal, or playing a non-sapient animal in an RP and being engaged by a sapient character.
-* Necrophilia
-? The act of having sex with a dead, or otherwise unconscious or inanimate, character that was once alive, or, theoretically, receiving such actions.
-* Cheating
-? Where one or both partners are being unfaithful to significant others.
-* Exhibitionism
-? Engaging in an RP in which the setting is of a public nature; typically used in conjunction with exhibitionism and/or humiliation.
-* Voyeurism
-? Refers to the derivation of sexual stimulation from either/or the action of watching, typically in secret, a person (or people) reveal themselves or do something otherwise explicit, or the act of revealing one's self and/or doing something otherwise explicit with the intent to be viewed.
+#Доминирование
+(Как Актив, Как Пасив)
+
+* Служение
+? Обслуживаться дворецким, официанткой, шофером, горничной или экономкой или выступать в их роли.
+* Рабство
+? Служить рабом доминанта без выбора или получать такую услугу.
+* Питомец
+? Это роль, в которой Пасив притворяеться питомцем.
+* Родители и дети
+? Папа или Мама/Маленькая девочка или мальчик. Папа/мама — более доминирующая половина отношений, а маленький — более покорная.
+* Дисциплина
+? Использование подкрепления (поощрений и/или наказаний) с целью научить покорного подчиняться различным командам хозяина.
+* Мольбы
+? Самоуничижительный акт мольбы или просьбы как форма подчинения, включенный в RP.
+* Принудительный оргазм
+? Принудительный оргазм — это БДСМ или извращенная сексуальная игра по обоюдному согласию, при которой человек соглашается на принуждение к оргазму способом, находящимся вне его контроля.
+* Контроль оргазма
+? Относится к доминирующему персонажу, контролирующему достижение пасивом оргазма физическими средствами или по команде; обычно предполагает доминирование и/или чрезмерное поддразнивание; оргазм может быть полностью исключен.
+* Полная власть
+? динамика отношений, где доминирующий партнер имеет полную власть над подчиненным во всем.
+
+#Без согласия
+(Агрессор, Жертва)
+* Сомнительное согласие
+? ситуации, когда согласие одного партнера под вопросом, но не прямое изнасилование.
+* Отсутствие согласия/изнасилование
+? брать/быть взятым против воли, часто с применением силы
+* Шантаж/принуждение
+? Относится к включению принуждения и/или шантажа в контекст сюжетной линии ролевой игры, часто в форме полусогласованного способа получения секса от партнера.
+* Похищение
+? Похищение персонажа в ролевой игре с целью насилия, часто сексуального, или похищение по таким причинам; часто подразумевает бессрочное тюремное заключение.
+* Афродизиак
+? Употребление веществ что воздействуют на жертву и возбуждают ее.
+* Наркотики
+? Использование запрещенных наркотиков в контексте ролевой игры, как правило, для дезориентации или иного умственного выведения персонажа из строя или для усиления сексуальных ощущений.
+* Алкоголь
+? Употребление алкоголя в контексте ролевой игры, как правило, для дезориентации или иного умственного выведения персонажа из строя или для усиления сексуальных ощущений.
+* Во время сна.
+? Вступление в половой акт с партнером, находящимся без сознания/спящим.
+
+#То что обычно находиться в табу
+(Общий)
+* Инцест
+? Участие в ролевой игре, в которой как минимум два персонажа будут связаны между собой.
+* Разница в возрасте
+? Относится к сценам, в которых имеется существенная разница в возрасте персонажей.
+* Межрасовый
+? Сцены, основанные на межрасовых взаимодействиях без опоры на расовые стереотипы.
+* Расизм
+? Сцены, основанные на расовых стереотипах или расизме, включая сцены, действие которых происходит в расистской обстановке.
+* Зоофилия
+? Относится к разумному персонажу, вступающему в половой акт с неразумным животным или играющему неразумное животное в ролевой игре и вступающему в контакт с разумным персонажем.
+* Некрофилия
+? Занятие сексом с мертвым или иным образом бессознательным или неодушевленным персонажем, который когда-то был живым, или, теоретически, получение таких действий.
+* Измена
+? Когда один или оба партнера изменяют близким людям.
+* Эксгибиционизм
+? Участие в ролевой игре, действие которой носит публичный характер, в общественных местах или на людях;
+* Вуайеризм
+? Относится к возникновению сексуальной стимуляции либо/или в результате наблюдения, обычно тайно, за тем, как человек (или люди) находяться голыми или занимаються интимом. 
+* Vore
+? вид фетишизма, при котором человек получает удовольствие от фантазий быть съеденным или съесть другого человека (чаще всего целиком)
+* Эрогуро 
+? Обычно это эротические сцены с расчленёнными или выпотрошенными телами, кровопролитие, каннибализм, отрезание конечностей, извращённые убийства, некрофилия, пластические операции
+* Гуро
+? Относится к включению фекалий или выделению фекалий в любой форме в сексуальном контексте РП.
+* Подгузники
+? Ситуация, в которой хотя бы один персонаж будет носить подгузник; обычно подразумевает, что подгузник будет испачкан мочой и/или фекалиями, обычно в связи с возрастными играми или инфантилизмом, но иногда и в связи с унижением.
 
 #Surrealism
 (Self, Partner)
