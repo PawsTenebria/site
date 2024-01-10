@@ -47,20 +47,35 @@ td {
 td + td { border-left-style:none }
 
 .choice {
-	box-sizing:border-box;
-	width:15px;
-	height:15px;
-	opacity:.35;
-	overflow:hidden;
-	text-indent:100px;
-	border:solid #000 1px;
-	border-radius:50%;
-	outline-style:none!important;
-	vertical-align:middle;
-	display:inline-block;
-	cursor:pointer;
-	font-size:0;
-	padding:0
+  box-sizing: border-box;
+  width: 0;
+  height: 0;
+  margin: 15px;
+  border: solid transparent;
+  border-width: 0 15px 25px 15px;
+  position: relative;
+}
+
+.choice::before,
+.choice::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  position: absolute;
+}
+
+.choice::before {
+  border-width: 10px 10px 0 10px;
+  top: -15px;
+  left: 0;
+}
+
+.choice::after {
+  border-width: 10px 10px 0 10px;
+  top: -15px;
+  left: -10px;
+  transform: rotate(180deg);
 }
 
 .choices .choice { transition:all .3s ease-in-out }
