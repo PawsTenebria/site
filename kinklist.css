@@ -1,14 +1,3 @@
-.choices.star {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    background: url('empty-star.png') no-repeat; /* Используйте пустую звезду */
-    cursor: pointer;
-}
-
-.choices.star.selected {
-    background: url('filled-star.png') no-repeat; /* Используйте заполненную звезду */
-}
 
 body {
 	font-family:'Verdana','Arial';
