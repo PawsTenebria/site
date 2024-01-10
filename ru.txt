@@ -1,21 +1,23 @@
 #Телосложение
-(General)
-* Skinny
-? Expresses an interest in characters that are waifish, thin, or slender.
-* Chubby
-? Expresses an interest in characters that are well-rounded, full in form, and pudgy.
-* Small breasts
-? Expresses an interest in breasts that are particularly small, sometimes to the point of appearing absent.
-* Large breasts
-? Expresses an interest in breasts that are particularly large.
-* Small cocks
-? Expresses an interest in cocks that are below average size.
-* Large cocks
-? Expresses an interest in cocks taht are above average size.
-* Small butts
-? Expresses an interest in butts that are particularly small.
-* Big Butts
-? Expresses an interest in butts that are particularly large.
+(Общий)
+* Стройный
+? Выражает интерес к худым или стройным персонажам.
+* Пухлый
+? Выражает интерес к хорошо округлым, полным и пухлым персонажам.
+* Маленькая грудь
+? Выражает интерес к особенно маленькой груди, иногда до такой степени, что кажется отсутствующей.
+* Большая грудь
+? Выражает интерес к груди особенно большого размера.
+* Маленькие члены
+? Выражает интерес к членам сильно ниже среднего размера.
+* Большие члены
+? Выражает интерес к членам сильно выше среднего размерав.
+* Маленькие попки.
+? Выражает интерес к маленьким задницам.
+* Большие попки
+? Выражает интерес к задницам особенно большого размера.
+* Нереалистично большие
+? Выражает интерес к нереалистично большим частям тел.
 
 #Clothing
 (Self, Partner)
