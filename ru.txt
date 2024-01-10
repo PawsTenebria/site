@@ -19,41 +19,66 @@
 * Нереалистично большие
 ? Выражает интерес к нереалистично большим частям тел.
 
-#Clothing
-(Self, Partner)
-* Clothed sex
-? Engaging in an RP where you and/or your partner are not undressed during sexual interaction.
-* Lingerie
-? Expresses an interest in the inclusion of lingerie in the sexual context of an RP, or an interest in characters wearing such.
-* Stockings
-? Expresses an interest in the inclusion of stockings in the sexual context of an RP, or an interest in characters wearing such.
-* Heels
-? Expresses an interest in the inclusion of high heeled shoes in the sexual context of an RP, or an interest in characters wearing such.
-* Leather
-? Expresses an interest in the inclusion of leather clothing in the sexual context of an RP, or an interest in characters wearing such.
-* Latex
-? The usage of latex and/or rubber material worn as clothing
-* Uniform / costume
-? Expresses an interest in the inclusion of uniforms or costumes in the sexual context of an RP, or an interest in characters wearing such.
-* Cross-dressing
-? Engaging in an RP where one or more characters dress in the clothes of the gender opposite to their own.
+#Одежда
+(Сам, Партнер)
+* Без одежды
+? Участие в ролевой игре, в которой вы и/или ваш партнер полносью голый во время сексуального взаимодействия.
+* Секс в одежде
+? Участие в ролевой игре, в которой вы и/или ваш партнер не раздеваетесь во время сексуального взаимодействия.
+* Дамское белье
+? Выражает заинтересованность во включении нижнего белья в сексуальный контекст ролевой игры или интерес к персонажам, носящим его.
+* Женские чулки
+? Выражает заинтересованность во включении чулок в сексуальный контекст ролевой игры или интерес к персонажам, носящим их.
+* Каблуки
+? Выражает заинтересованность во включении туфель на высоких каблуках в сексуальный контекст ролевой игры или интерес к персонажам, носящим их.
+* Кожаная одежда
+? Выражает заинтересованность во включении кожаной одежды в сексуальный контекст ролевой игры или интерес к персонажам, носящим ее.
+* Латекс
+? Использование латексных и/или резиновых материалов в качестве одежды.
+* Униформа/костюм
+? Выражает заинтересованность во включении униформы или костюмов в сексуальный контекст ролевой игры или интерес к персонажам, носящим их.
+* Переодевание
+? Участие в ролевой игре, в которой один или несколько персонажей одеваются в одежду противоположного пола.
+*Аксессуары
+? Участие в ролевой игре, в которой один или несколько персонажей носят чокеры, портупеи или иные аксессуары.
 
-#Roles & Groupings
-(Self, Partner)
-* as Male
-* as Female
-* as Femboy
-* as Futa
-* as MtF trans
-* as FtM trans
-* as male & female
-* as multiple males
-* as multiple females
-* as multiple males & females
-* as Dominant
-* as Submissive
-* as Switch
-* as Celebrity
+#Пол
+(Сам, Партнер)
+* как мужчина
+? Участие в ролевой игре, в которой указаный игрок взял на себя роль мужчины
+* как девушка
+? Участие в ролевой игре, в которой указаный игрок взял на себя роль девушки
+* как Фембой
+? Участие в ролевой игре, в которой указаный игрок взял на себя роль фембоя
+* как Фута
+? Участие в ролевой игре, в которой указаный игрок взял на себя роль футы
+* как несколько мужчин
+? Участие в ролевой игре, в которой указаный игрок взял на себя роль нескольких мужчин
+* как несколько женщин
+? Участие в ролевой игре, в которой указаный игрок взял на себя роль нескольких женщин
+* как доминант
+
+#Раса
+(Сам, Партнер)
+* Люди
+* Фурри
+* Фэнтези существа
+* Монстры
+* Роботы
+* Инсектойды
+
+#Позиции
+(Сам, Партнер)
+? Участие в ролевой игре, в которой указаный игрок взял на себя доминирующую позицию (актив)
+* как покорный
+? Участие в ролевой игре, в которой указаный игрок взял на себя нижнюю позицию (пасив)
+* как переключатель
+? Участие в ролевой игре, в которой указаный игрок может взять на себя и доминирующую и нижнюю позицию (Уни)
+
+#Роли
+(Сам, Партнер)
+* как знаменитость
+? Участие в ролевой игре, в которой указаный игрок может взять на себя и доминирующую и нижнюю позицию (Уни)
 
 #General
 (Giving, Receiving)
