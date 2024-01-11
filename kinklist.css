@@ -50,7 +50,7 @@ td + td { border-left-style:none }
 	box-sizing:border-box;
 	width:15px;
 	height:15px;
-	opacity:.15;
+	opacity:.20;
 	overflow:hidden;
 	text-indent:100px;
 	border:solid #000 1px;
