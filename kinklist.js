@@ -173,7 +173,21 @@ $(function(){
             inputKinks.parseHash();
 
             // Make export button work
-            $('#Export').on('click', inputKinks.export);
+            $('#Share').on('click', function() {
+                // Генерируем полный URL с текущим хешем
+                var shareUrl = window.location.origin + window.location.pathname + '#' + inputKinks.updateHash();
+                
+                // Копируем в буфер обмена
+                navigator.clipboard.writeText(shareUrl).then(function() {
+                    // Показываем надпись "Скопировано" на 2 секунды
+                    $('#Loading').text('Ссылка скопирована!').fadeIn();
+                    setTimeout(function() {
+                        $('#Loading').fadeOut();
+                    }, 2000);
+                }).catch(function(err) {
+                    alert('Ошибка при копировании: ', err);
+                });
+            });
             $('#URL').on('click', function(){ this.select(); });
 
             // On resize, redo columns
