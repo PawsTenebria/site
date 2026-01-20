@@ -72,35 +72,6 @@ $(function(){
 
             return $category;
         },
-        shareLink: function(){
-            // обновляем hash из текущего выбора
-            var hash = inputKinks.updateHash();
-            location.hash = hash;
-        
-            // формируем полный URL
-            var url = location.origin + location.pathname + '#' + hash;
-        
-            // кладём в поле
-            $('#URL').val(url).fadeIn();
-        
-            // копируем в буфер обмена
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).then(function(){
-                    alert('Ссылка скопирована в буфер обмена');
-                }).catch(function(){
-                    // fallback для старых браузеров
-                    $('#URL')[0].select();
-                    document.execCommand('copy');
-                    alert('Ссылка скопирована в буфер обмена');
-                });
-            } else {
-                // совсем старый вариант
-                $('#URL')[0].select();
-                document.execCommand('copy');
-                alert('Ссылка скопирована в буфер обмена');
-            }
-        },
-
         createChoice: function(){
             var $container = $('<div>').addClass('choices');
             var levels = Object.keys(level);
@@ -202,8 +173,7 @@ $(function(){
             inputKinks.parseHash();
 
             // Make export button work
-            // Кнопка "Поделиться ссылкой"
-            $('#Share').on('click', inputKinks.shareLink);
+            $('#Export').on('click', inputKinks.export);
             $('#URL').on('click', function(){ this.select(); });
 
             // On resize, redo columns
