@@ -1,56 +1,99 @@
-/* Увеличиваем ширину контейнера, чтобы влезли 2 кнопки */
+/* --- НАЧАЛО ИЗМЕНЕНИЙ --- */
+
 #ExportWrapper {
-    width: 300px; /* Было 460px */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    /* Увеличиваем ширину контейнера, чтобы влезли обе кнопки */
+    width: 580px; 
     height: 36px;
-    position: relative; /* Убедимся, что позиционирование работает */
+    z-index: 100; /* На всякий случай поднимаем слой выше */
 }
 
-/* Стили для новой кнопки "Ссылка" */
+#URL {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 300px; /* Поле ввода занимает первые 300px */
+    height: 36px;
+    border: solid #999 1px;
+    color: #999;
+    padding: 4px;
+    border-radius: 4px;
+    display: none; /* Скрыто по умолчанию, пока не нажмут кнопку */
+}
+
+/* Новая кнопка "Ссылка" */
 #BtnShare {
     position: absolute;
-    left: 310px; /* Ставим её сразу после поля ввода */
+    top: 0;
+    left: 310px; /* Встает сразу после поля ввода (300px + 10px отступ) */
+    width: 100px;
+    height: 36px;
     box-sizing: border-box;
     color: #FFF;
     text-transform: uppercase;
-    background-color: #0bda51; /* Зеленый цвет, как у "Фетиши" */
-    font-size: 18px;
-    width: 100px; /* Кнопка поуже */
-    height: 36px;
+    background-color: #0bda51; /* Зеленый цвет */
+    font-size: 14px; /* Чуть уменьшил шрифт, чтобы влезло */
+    font-weight: bold;
     border-style: none;
     border-radius: 4px;
     cursor: pointer;
     transition: all .3s ease-in-out;
 }
 
-#BtnShare:hover { opacity: .85; }
+#BtnShare:hover {
+    opacity: 0.8;
+}
 
-/* Сдвигаем кнопку Export правее */
+/* Кнопка "Export" */
 #Export {
-    left: 420px; /* Было 310px. Сдвинули на (310 + 100 + 10 отступа) */
-    /* Остальные стили Export остаются без изменений */
+    position: absolute;
+    top: 0;
+    /* !ВАЖНО! Сдвигаем Export вправо: 310px (предыдущая) + 100px (ширина) + 10px (отступ) */
+    left: 420px; 
+    width: 150px;
+    height: 36px;
+    box-sizing: border-box;
+    color: #FFF;
+    text-transform: uppercase;
+    background-color: #0095DD;
+    font-size: 18px;
+    border-style: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-/* --- АДАПТИВНОСТЬ (MEDIA QUERIES) --- */
-/* Нужно поправить адаптивность, так как мы изменили ширину */
-
-/* Для больших экранов (Desktop) */
-@media (min-width: 1700px) {
-    #ExportWrapper {
-        /* Координаты остаются те же, но убедитесь, что ширина не перекрывает заголовок */
-        right: 46px; 
-    }
+#Loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    line-height: 36px;
+    font-weight: bold;
+    color: #333;
+    display: none;
+    z-index: 10;
 }
 
-/* Для мобильных устройств - нужно перестроить кнопки в два ряда или уменьшить их */
+/* --- АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ --- */
+/* Обязательно добавьте это, иначе на телефоне кнопки уедут за экран */
 @media (max-width: 650px) {
     #ExportWrapper {
+        position: static;
         width: 100%;
         height: auto;
+        margin-bottom: 20px;
     }
     
     #URL {
         position: static;
-        display: block;
+        display: none; /* Или block, если хотите видеть сразу */
         width: 100%;
         margin-bottom: 5px;
     }
@@ -59,6 +102,7 @@
         position: static;
         width: 48%;
         float: left;
+        margin-bottom: 10px;
     }
 
     #Export {
@@ -66,15 +110,17 @@
         width: 48%;
         float: right;
         margin-left: 0;
+        margin-bottom: 10px;
     }
     
-    /* Очистка потока после кнопок */
+    /* Очистка потока, чтобы элементы ниже не наезжали */
     #ExportWrapper:after {
         content: "";
         display: table;
         clear: both;
     }
 }
+/* --- КОНЕЦ ИЗМЕНЕНИЙ --- */
 
 body {
 	font-family:'Verdana','Arial';
