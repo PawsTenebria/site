@@ -46,14 +46,15 @@ $(function(){
             inputKinks.restoreSavedSelection(selection);
         }, 'text');
     }); 
-
+    
     inputKinks = {
         $columns: [],
         createCategory: function(name, fields){
             var $category = $('<div class="category"></div>');
             $category.append('<h2>' + name + '</h2>');
-            var $table = $('<table><thead><tr><th></th></tr></thead><tbody></tbody></table>');
+            var $table = $('<table><thead><tr></tr></thead><tbody></tbody></table>');
             var $headerRow = $table.find('thead tr');
+            $headerRow.append('<th></th>');
             for(var i = 0; i < fields.length; i++) {
                 $headerRow.append('<th>' + fields[i] + '</th>');
             }
@@ -61,30 +62,11 @@ $(function(){
             return $category;
         },
         createChoice: function(){
-            var $choices = $('<div class="choices"></div>');
-            var i = 0;
-            for(var label in colors) {
-                var color = colors[label];
-                var $choice = $('<button class="choice ' + label + '"></button>');
-                $choice.data('level', label);
-                $choice.data('levelInt', i++);
-                $choice.on('click', function(){
-                    var $this = $(this);
-                    var isSelected = $this.hasClass('selected');
-                    $this.parent().children().removeClass('selected');
-                    if(!isSelected) {
-                        $this.addClass('selected');
-                    }
-                    // Обновляем хеш в URL при каждом клике
-                    location.hash = inputKinks.updateHash();
-                });
-                $choices.append($choice);
-            }
-            return $choices;
+            return $('<button class="choice"></button>');
         },
         createKink: function(fields, kink){
-            var $kink = $('<tr class="kinkRow"></tr>');
-            $kink.data('kink', kink.name);
+            var $kinkRow = $('<tr class="kinkRow"></tr>');
+            $kinkRow.data('kink', kink.name);
             var $name = $('<td class="kinkName">' + kink.name + '</td>');
             if(kink.description) {
                 $name.append('<span class="kinkDescription">?</span>');
@@ -93,22 +75,40 @@ $(function(){
                     $('#DescriptionOverlay').fadeIn();
                 });
             }
-            $kink.append($name);
+            $kinkRow.append($name);
+            
             for(var i = 0; i < fields.length; i++) {
-                var $td = $('<td></td>');
-                var $choice = inputKinks.createChoice();
-                $choice.data('field', fields[i]);
-                $td.append($choice);
-                $kink.append($td);
+                var $choices = $('<td class="choices"></td>');
+                $choices.data('field', fields[i]);
+                var colorKeys = Object.keys(colors);
+                for(var j = 0; j < colorKeys.length; j++) {
+                    var $choice = inputKinks.createChoice();
+                    $choice.addClass(colorKeys[j]);
+                    $choice.data('level', colorKeys[j]);
+                    $choice.data('levelInt', j);
+                    $choices.append($choice);
+                }
+                $choices.find('.choice').on('click', function(){
+                    var $this = $(this);
+                    if($this.hasClass('selected')) {
+                        $this.removeClass('selected');
+                    }
+                    else {
+                        $this.parent().find('.choice').removeClass('selected');
+                        $this.addClass('selected');
+                    }
+                    // Обновляем хеш в URL при каждом клике
+                    location.hash = inputKinks.updateHash();
+                });
+                $kinkRow.append($choices);
             }
-            return $kink;
+            return $kinkRow;
         },
         createColumns: function(){
             inputKinks.$columns = [];
             var numCols = 3;
             if(window.innerWidth < 1100) numCols = 2;
             if(window.innerWidth < 750) numCols = 1;
-
             for(var i = 0; i < numCols; i++) {
                 var $column = $('<div class="column"></div>');
                 $column.css('width', (100 / numCols) + '%');
@@ -117,15 +117,17 @@ $(function(){
             }
         },
         placeCategories: function($categories){
-            var colHeights = inputKinks.$columns.map(function(){ return 0; });
             for(var i = 0; i < $categories.length; i++) {
-                var $cat = $categories[i];
-                var shortestCol = 0;
-                for(var j = 1; j < colHeights.length; j++) {
-                    if(colHeights[j] < colHeights[shortestCol]) shortestCol = j;
+                var minHeight = 1000000000;
+                var minCol = 0;
+                for(var c = 0; c < inputKinks.$columns.length; c++) {
+                    var height = inputKinks.$columns[c].height();
+                    if(height < minHeight) {
+                        minHeight = height;
+                        minCol = c;
+                    }
                 }
-                inputKinks.$columns[shortestCol].append($cat);
-                colHeights[shortestCol] += $cat.height() || (30 + $cat.find('tr').length * 32);
+                inputKinks.$columns[minCol].append($categories[i]);
             }
         },
         fillInputList: function(){
@@ -136,10 +138,12 @@ $(function(){
             for(var i = 0; i < kinkCats.length; i++) {
                 var catName = kinkCats[i];
                 var category = kinks[catName];
-                var $category = inputKinks.createCategory(catName, category.fields);
+                var fields = category.fields;
+                var kinkArr = category.kinks;
+                var $category = inputKinks.createCategory(catName, fields);
                 var $tbody = $category.find('tbody');
-                for(var k = 0; k < category.kinks.length; k++) {
-                    $tbody.append(inputKinks.createKink(category.fields, category.kinks[k]));
+                for(var k = 0; k < kinkArr.length; k++) {
+                    $tbody.append(inputKinks.createKink(fields, kinkArr[k]));
                 }
                 $categories.push($category);
             }
@@ -149,14 +153,16 @@ $(function(){
             inputKinks.fillInputList();
             inputKinks.parseHash();
 
-            // Кнопка Поделиться
-            $('#ShareBtn, #Export').on('click', function() {
+            // Логика кнопки "Поделиться"
+            $('#Share').on('click', function() {
                 var hash = inputKinks.updateHash();
                 var shareUrl = window.location.origin + window.location.pathname + '#' + hash;
                 
+                // Попытка копирования через современный API
                 if (navigator.clipboard && window.isSecureContext) {
                     navigator.clipboard.writeText(shareUrl).then(showSuccess);
                 } else {
+                    // Резервный метод для старых браузеров или http
                     var textArea = document.createElement("textarea");
                     textArea.value = shareUrl;
                     document.body.appendChild(textArea);
@@ -176,8 +182,9 @@ $(function(){
             });
 
             $(window).on('resize', function(){
+                var selection = inputKinks.saveSelection();
                 inputKinks.fillInputList();
-                inputKinks.parseHash();
+                inputKinks.restoreSavedSelection(selection);
             });
         },
         hashChars: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.=+*^!@",
@@ -195,123 +202,233 @@ $(function(){
             var outputPow = inputKinks.maxPow(hashBase, Number.MAX_SAFE_INTEGER);
             var inputPow = inputKinks.maxPow(base, Math.pow(hashBase, outputPow));
             var output = "";
-            for(var chunkId = 0; chunkId < Math.ceil(input.length / inputPow); chunkId++) {
+            var numChunks = Math.ceil(input.length / inputPow);
+            var inputIndex = 0;
+            for(var chunkId = 0; chunkId < numChunks; chunkId++) {
                 var inputIntValue = 0;
                 for(var pow = 0; pow < inputPow; pow++) {
-                    var val = input[chunkId * inputPow + pow];
-                    if(val === undefined) break;
-                    inputIntValue += val * Math.pow(base, pow);
+                    var inputVal = input[inputIndex++];
+                    if(typeof inputVal === "undefined") break;
+                    inputIntValue += inputVal * Math.pow(base, pow);
                 }
-                var outChunk = "";
+                var outputCharValue = "";
                 while(inputIntValue > 0) {
-                    outChunk = inputKinks.hashChars[inputIntValue % hashBase] + outChunk;
-                    inputIntValue = Math.floor(inputIntValue / hashBase);
+                    var maxPow = Math.floor(log(inputIntValue, hashBase));
+                    var powVal = Math.pow(hashBase, maxPow);
+                    var charInt = Math.floor(inputIntValue / powVal);
+                    outputCharValue += inputKinks.hashChars[charInt];
+                    inputIntValue -= charInt * powVal;
                 }
-                output += inputKinks.prefix(outChunk, outputPow, inputKinks.hashChars[0]);
+                output += inputKinks.prefix(outputCharValue, outputPow, inputKinks.hashChars[0]);
             }
             return output;
         },
         decode: function(base, output){
             var hashBase = inputKinks.hashChars.length;
             var outputPow = inputKinks.maxPow(hashBase, Number.MAX_SAFE_INTEGER);
-            var inputPow = inputKinks.maxPow(base, Math.pow(hashBase, outputPow));
             var values = [];
-            for(var i = 0; i < output.length / outputPow; i++){
+            var numChunks = Math.max(output.length / outputPow);
+            for(var i = 0; i < numChunks; i++){
                 var chunk = output.substring(i * outputPow, (i + 1) * outputPow);
-                var chunkInt = 0;
-                for(var j = 0; j < chunk.length; j++) {
-                    chunkInt = chunkInt * hashBase + inputKinks.hashChars.indexOf(chunk[j]);
-                }
-                for(var pow = 0; pow < inputPow; pow++) {
-                    values.push(chunkInt % base);
-                    chunkInt = Math.floor(chunkInt / base);
-                }
+                var chunkValues = inputKinks.decodeChunk(base, chunk);
+                for(var j = 0; j < chunkValues.length; j++) { values.push(chunkValues[j]); }
             }
             return values;
+        },
+        decodeChunk: function(base, chunk){
+            var hashBase = inputKinks.hashChars.length;
+            var outputPow = inputKinks.maxPow(hashBase, Number.MAX_SAFE_INTEGER);
+            var inputPow = inputKinks.maxPow(base, Math.pow(hashBase, outputPow));
+            var chunkInt = 0;
+            for(var i = 0; i < chunk.length; i++) {
+                var charInt = inputKinks.hashChars.indexOf(chunk[i]);
+                chunkInt += Math.pow(hashBase, chunk.length - 1 - i) * charInt;
+            }
+            var output = [];
+            for(var pow = inputPow - 1; pow >= 0; pow--) {
+                var posBase = Math.floor(Math.pow(base, pow));
+                var posVal = Math.floor(chunkInt / posBase);
+                output.push(posVal);
+                chunkInt -= posBase * posVal;
+            }
+            return output.reverse();
         },
         updateHash: function(){
             var hashValues = [];
             $('#InputList .choices').each(function(){
-                var lvl = $(this).find('.selected').data('levelInt');
-                hashValues.push(lvl === undefined ? 5 : lvl); // 5 - это "Не выбрано"
+                var lvlInt = $(this).find('.selected').data('levelInt');
+                if(typeof lvlInt === "undefined") lvlInt = 0;
+                hashValues.push(lvlInt);
             });
-            return inputKinks.encode(6, hashValues);
+            return inputKinks.encode(Object.keys(colors).length, hashValues);
         },
         parseHash: function(){
             var hash = location.hash.substring(1);
-            if(!hash) return;
-            var values = inputKinks.decode(6, hash);
-            $('#InputList .choices').each(function(i){
-                if(values[i] !== undefined && values[i] !== 5) {
-                    $(this).find('.choice').eq(values[i]).addClass('selected');
-                }
+            if(hash.length < 5) return;
+            var values = inputKinks.decode(Object.keys(colors).length, hash);
+            var valueIndex = 0;
+            $('#InputList .choices').each(function(){
+                var value = values[valueIndex++];
+                $(this).children().removeClass('selected').eq(value).addClass('selected');
             });
         },
         saveSelection: function(){
-            var sel = [];
+            var selection = [];
             $('.choice.selected').each(function(){
-                sel.push({
-                    kink: $(this).closest('tr').data('kink'),
-                    field: $(this).closest('.choices').data('field'),
-                    lvl: $(this).data('levelInt')
-                });
+                var $this = $(this);
+                var kinkName = $this.closest('tr').data('kink');
+                var fieldName = $this.closest('.choices').data('field');
+                var levelIdx = $this.data('levelInt');
+                selection.push({kink: kinkName, field: fieldName, level: levelIdx});
             });
-            return sel;
+            return selection;
         },
-        restoreSavedSelection: function(sel){
-            sel.forEach(function(s){
-                $('.kinkRow').filter(function(){ return $(this).data('kink') === s.kink; })
-                    .find('.choices').filter(function(){ return $(this).data('field') === s.field; })
-                    .find('.choice').eq(s.lvl).addClass('selected');
-            });
-        },
-        parseKinksText: function(text){
-            var lines = text.split('\n');
-            var result = {};
-            var curCat = null;
-            for(var i = 0; i < lines.length; i++){
-                var line = lines[i].trim();
-                if(line.startsWith('#')) {
-                    curCat = line.substring(1).trim();
-                    result[curCat] = {fields: [], kinks: []};
-                } else if(line.startsWith('(')) {
-                    result[curCat].fields = line.slice(1,-1).split(',').map(s => s.trim());
-                } else if(line.startsWith('*')) {
-                    var kink = {name: line.substring(1).trim(), description: ""};
-                    if(lines[i+1] && lines[i+1].trim().startsWith('?')) {
-                        kink.description = lines[i+1].trim().substring(1).trim();
-                    }
-                    result[curCat].kinks.push(kink);
-                }
+        restoreSavedSelection: function(selection){
+            if(!selection) return;
+            for(var i = 0; i < selection.length; i++){
+                var item = selection[i];
+                var $row = $('.kinkRow').filter(function() { return $(this).data('kink') === item.kink; });
+                var $choices = $row.find('.choices').filter(function() { return $(this).data('field') === item.field; });
+                $choices.find('.choice').eq(item.level).addClass('selected');
             }
-            return result;
         },
         inputListToText: function(){
-            return $('#Kinks').val();
+            var text = "";
+            var kinkCats = Object.keys(kinks);
+            for(var i = 0; i < kinkCats.length; i++) {
+                text += "#" + kinkCats[i] + "\n";
+                var category = kinks[kinkCats[i]];
+                text += "(" + category.fields.join(", ") + ")\n";
+                for(var k = 0; k < category.kinks.length; k++) {
+                    var kink = category.kinks[k];
+                    text += "* " + kink.name + "\n";
+                    if(kink.description) text += "? " + kink.description + "\n";
+                }
+                text += "\n";
+            }
+            return text;
+        },
+        parseKinksText: function(kinksText){
+            var lines = kinksText.split('\n');
+            var currentCategory = "";
+            var parsedKinks = {};
+            for(var i = 0; i < lines.length; i++) {
+                var line = lines[i].trim();
+                if(line.startsWith('#')) {
+                    currentCategory = line.substring(1).trim();
+                    parsedKinks[currentCategory] = {fields: [], kinks: []};
+                }
+                else if(line.startsWith('(')) {
+                    var fields = line.substring(1, line.length - 1).split(',');
+                    for(var f = 0; f < fields.length; f++) parsedKinks[currentCategory].fields.push(fields[f].trim());
+                }
+                else if(line.startsWith('*')) {
+                    parsedKinks[currentCategory].kinks.push({name: line.substring(1).trim(), description: ""});
+                }
+                else if(line.startsWith('?')) {
+                    var lastKinkIdx = parsedKinks[currentCategory].kinks.length - 1;
+                    parsedKinks[currentCategory].kinks[lastKinkIdx].description = line.substring(1).trim();
+                }
+            }
+            return parsedKinks;
+        },
+        getAllKinks: function(){
+            var allKinks = [];
+            $('.kinkRow').each(function(){
+                var $row = $(this);
+                $row.find('.choices').each(function(){
+                    allKinks.push({
+                        category: $row.closest('.category').find('h2').text(),
+                        field: $(this).data('field'),
+                        kink: $row.data('kink'),
+                        $choices: $(this)
+                    });
+                });
+            });
+            return allKinks;
         }
     };
 
-    // Парсим легенду для цветов
+    // Парсим цвета легенды
     $('.legend .choice').each(function(){
-        var label = $(this).attr('class').split(' ')[1];
-        var color = $(this).data('color');
-        colors[label] = color;
-        level[label] = $(this).next().text();
-        addCssRule('.choice.' + label + '.selected', 'background-color:' + color + ' !important');
+        var $this = $(this);
+        var color = $this.data('color');
+        var className = $this.attr('class').replace('choice ', '');
+        colors[className] = color;
+        addCssRule('.' + className + '.selected', 'background-color: ' + color + ' !important;');
     });
 
-    // Запуск
+    // Обработка кнопок интерфейса
+    $('#Edit').on('click', function(){
+        $('#Kinks').val(inputKinks.inputListToText().trim());
+        $('#EditOverlay').fadeIn();
+    });
+
+    $('#KinksOK').on('click', function(){
+        var selection = inputKinks.saveSelection();
+        kinks = inputKinks.parseKinksText($('#Kinks').val());
+        inputKinks.fillInputList();
+        inputKinks.restoreSavedSelection(selection);
+        $('#EditOverlay').fadeOut();
+    });
+
+    $('.closePopup, .overlay').on('click', function(e){
+        if(e.target !== this) return;
+        $('.overlay').fadeOut();
+    });
+
+    // Запуск приложения
     kinks = inputKinks.parseKinksText($('#Kinks').val());
     inputKinks.init();
 
-    // Оверлеи
-    $('#Edit').on('click', function(){ $('#EditOverlay').fadeIn(); });
-    $('#KinksOK').on('click', function(){
-        kinks = inputKinks.parseKinksText($('#Kinks').val());
-        inputKinks.fillInputList();
-        $('#EditOverlay').fadeOut();
-    });
-    $('.overlay, .closePopup').on('click', function(e){
-        if(e.target === this) $(this).fadeOut();
-    });
+    // Вспомогательный функционал модального окна ввода
+    var $popup = $('#InputOverlay');
+    var $options = $('#InputValues');
+    inputKinks.inputPopup = {
+        allKinks: [],
+        currentIndex: 0,
+        showIndex: function(index){
+            inputKinks.inputPopup.currentIndex = index;
+            var data = inputKinks.inputPopup.allKinks[index];
+            $('#InputCategory').text(data.category);
+            $('#InputField').text(data.kink + " (" + data.field + ")");
+            
+            $options.empty();
+            var colorKeys = Object.keys(colors);
+            var $selected = data.$choices.find('.selected');
+            
+            for(var i = 0; i < colorKeys.length; i++){
+                var $btn = $('<button class="big-choice"></button>');
+                $btn.addClass(colorKeys[i]);
+                if($selected.length && $selected.data('level') === colorKeys[i]) $btn.addClass('active');
+                
+                $btn.on('click', function(){
+                    var lvl = $(this).attr('class').split(' ')[1];
+                    data.$choices.find('.' + lvl).click();
+                    inputKinks.inputPopup.showNext();
+                });
+                $options.append($btn);
+            }
+        },
+        showNext: function(){
+            var index = inputKinks.inputPopup.currentIndex + 1;
+            if(index >= inputKinks.inputPopup.allKinks.length) {
+                $popup.fadeOut();
+                return;
+            }
+            inputKinks.inputPopup.showIndex(index);
+        },
+        showPrev: function(){
+            var index = inputKinks.inputPopup.currentIndex - 1;
+            if(index < 0) return;
+            inputKinks.inputPopup.showIndex(index);
+        },
+        show: function(){
+            inputKinks.inputPopup.allKinks = inputKinks.getAllKinks();
+            inputKinks.inputPopup.showIndex(0);
+            $popup.fadeIn();
+        }
+    };
+
+    $('#StartBtn').on('click', inputKinks.inputPopup.show);
 });
