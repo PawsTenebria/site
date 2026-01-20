@@ -176,35 +176,6 @@ $(function(){
             $('#Export').on('click', inputKinks.export);
             $('#URL').on('click', function(){ this.select(); });
 
-            // --- НОВЫЙ КОД: КНОПКА ПОДЕЛИТЬСЯ ССЫЛКОЙ ---
-            $('#BtnShare').on('click', function(){
-                // Скрываем лоадер экспорта, если он висит
-                $('#Loading').hide();
-
-                // Получаем текущую ссылку (хеш обновляется автоматически при кликах)
-                var currentUrl = window.location.href;
-
-                // Показываем ссылку в поле ввода
-                var $urlField = $('#URL');
-                $urlField.val(currentUrl).fadeIn();
-                $urlField.select();
-
-                // Копируем в буфер обмена
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(currentUrl).then(function() {
-                        var $btn = $('#BtnShare');
-                        var originalText = $btn.text();
-                        $btn.text('Скопировано!');
-                        setTimeout(function(){
-                            $btn.text(originalText);
-                        }, 2000);
-                    }).catch(function(err) {
-                        console.error('Не удалось скопировать: ', err);
-                    });
-                }
-            });
-            // --- КОНЕЦ НОВОГО КОДА ---
-
             // On resize, redo columns
             (function(){
 
